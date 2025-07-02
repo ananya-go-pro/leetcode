@@ -1,0 +1,38 @@
+class Solution(object):
+    def myAtoi(self, s):
+        num='1234567890'
+        c=0
+        if s=='':
+            return 0
+        if len(s)==1:
+            if s not in num:
+                return 0
+            else:
+                return int(s)
+        while(s[0]==' '):
+            if s[1:]=='':
+                return 0
+            s=s[1:]
+        print(s)
+        if(s[0]=='-')or(s[0]=='+'):
+            c+=1
+            for i in s[1:]:
+                if i in num:
+                    c+=1
+                else:
+                    break
+        for i in s:
+            if i in num:
+                c+=1
+            else:
+                break
+        if c==0:
+            return 0
+        if len(s[:c])==1:
+            if s[:c] not in num:
+                return 0
+        if(int(s[:c])>(2**31-1)):
+            return 2**31-1
+        if(int(s[:c])<-2**31):
+            return -2**31
+        return int(s[:c])

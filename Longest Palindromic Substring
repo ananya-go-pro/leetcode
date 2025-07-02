@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        if len(s)<=1:
+            return s   
+        if s==s[::-1]:
+            return s   
+        a=[]
+        c=0
+        for i in range(0,len(s)):
+            for j in range(i+1,len(s)+1):
+                if i!=j:
+                    d=s[i:j]
+                    if d==d[::-1]:
+                        a.append(d)
+        e=0
+        d=''
+        for i in a:
+            if len(i)>e:
+                e=len(i)
+                d=i
+        return d

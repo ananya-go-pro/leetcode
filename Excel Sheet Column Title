@@ -1,0 +1,11 @@
+class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+        a='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        if columnNumber<26:
+            return a[columnNumber-1]
+        def base(x):
+            ans=''
+            if x/26<0:
+                return ans
+            return a[(x-1)%26]+base(((x-1)//26))
+        return (base(columnNumber)[::-1])[1:]

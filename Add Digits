@@ -1,0 +1,12 @@
+class Solution(object):
+    def addDigits(self, num):
+        def yee(n):
+            c=0
+            if n<10:
+                return n
+            while n/10>0:
+                c+=(n/10)
+                n=(n%10)
+            c+=n
+            return yee(c)
+        return yee(num)

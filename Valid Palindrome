@@ -1,0 +1,13 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        a=''
+        b='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+        c='1234567890'
+        for i in s:
+            if (i in b) or (i in c):
+                a=a+i
+        a=a.lower()
+        if a==a[::-1]:
+            return True
+        else:
+            return False     

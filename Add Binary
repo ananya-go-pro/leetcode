@@ -1,0 +1,10 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        sum=0
+        for i in range(0,len(a)):
+            if a[-i-1]=='1':
+                sum=sum+(2**(i))
+        for k in range(0,len(b)):
+            if b[-k-1]=='1':
+                sum=sum+(2**(k))
+        return str(bin(sum))[2:]

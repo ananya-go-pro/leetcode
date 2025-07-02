@@ -1,0 +1,8 @@
+class Solution(object):
+    def searchMatrix(self, matrix, target):
+        for i in matrix:
+            if i[-1]>=target:
+                for k in i:
+                    if k==target:
+                        return True
+        return False

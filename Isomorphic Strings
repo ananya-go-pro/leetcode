@@ -1,0 +1,30 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s)!=len(t):
+            return False
+        ss=set()
+        tt=set()
+        for i in s:
+            ss.add(i)
+        for i in t:
+            tt.add(i)
+        if len(ss)!=len(tt):
+            return False
+        a=[]
+        b=[]
+        c=0
+        d=0
+        for i in s:
+            a.append('0')
+        for i in t:
+            b.append('0')
+        for i in s:
+            c+=1
+            a[s.index(i)]=str(c)
+        for j in t:
+            d+=1
+            b[t.index(j)]=str(d) 
+        if a==b:
+            return True
+        else:
+            return False    

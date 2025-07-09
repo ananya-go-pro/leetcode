@@ -1,0 +1,23 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        a=""
+        b=0
+        if len(word1)>len(word2):
+            b=len(word2)
+        else:
+            b=len(word1)
+        for i in range(0,b):
+            a=a+word1[i]+word2[i]
+        if len(word1)==len(word2):
+            return a
+        else:
+            if b==len(word1):
+                a=a+word2[b:]
+            else:
+                a=a+word1[b:]
+        return a

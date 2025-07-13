@@ -1,0 +1,37 @@
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if max(nums) == min(nums) == 0:
+            return [[0,0,0]]
+        if min(nums)>=0:
+            return []
+        if max(nums)<=0:
+            return []
+        if (len(nums)==3):
+            if (sum(nums)==0):
+                return [nums]
+            else:
+                return []
+        if (len(nums)<3):
+            return []
+        nums.sort()
+        a=[]
+        for i in range(0,len(nums)-2):
+            if nums[i]>0:
+                break
+            k=len(nums)-1
+            j=i+1
+            while (k>j):
+                b=[nums[i],nums[j],nums[k]]
+                if sum(b)==0:
+                    if b not in a:
+                        a.append(b)
+                    j+=1
+                elif sum(b)>0:
+                    k-=1
+                elif sum(b)<0:
+                    j+=1
+        return a

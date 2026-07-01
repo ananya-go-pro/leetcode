@@ -1,0 +1,30 @@
+class Solution(object):
+    def numberOfSubstrings(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if ("a" not in s) or ("b" not in s) or ("c" not in s):
+            return 0
+        count=0
+        start=0
+        a=0
+        b=0
+        c=0
+        for end in range(0,len(s)):
+            if s[end]=="a":
+                a+=1
+            if s[end]=="b":
+                b+=1
+            if s[end]=="c":
+                c+=1
+            while a>0 and b>0 and c>0:
+                count+=len(s)-end
+                if s[start]=="a":
+                    a-=1
+                if s[start]=="b":
+                    b-=1
+                if s[start]=="c":
+                    c-=1
+                start+=1
+        return count

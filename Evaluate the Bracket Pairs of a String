@@ -1,0 +1,30 @@
+class Solution(object):
+    def evaluate(self, s, knowledge):
+        """
+        :type s: str
+        :type knowledge: List[List[str]]
+        :rtype: str
+        """
+        i=0
+        tostuff=False
+        stuff=""
+        ans=""
+        look={}
+        for j in knowledge:
+            look[j[0]]=j[1]
+        while i<len(s):
+            if s[i]==")":
+                tostuff=False
+                if stuff not in look:
+                    ans=ans+"?"
+                else:
+                    ans=ans+look[stuff]
+                stuff=""
+            elif tostuff==True:
+                stuff=stuff+s[i]
+            elif s[i]=="(":
+                tostuff=True
+            else:
+                ans=ans+s[i]
+            i+=1
+        return ans
